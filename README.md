@@ -26,4 +26,4 @@ To collect all the errors run the script in debug mode and pipe stderr and stdou
 
 ## Joined
 
-Included is a single ruby script which combines spawn.rb, safe.rb and reap.rb into one ```ruby joined/safe.rb```. In this scenario the script successfully without any errors.
+Included is a single ruby script which combines spawn.rb, safe.rb and reap.rb into one ```ruby joined/safe.rb```. In this scenario the script runs successfully.
