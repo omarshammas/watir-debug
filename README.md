@@ -20,10 +20,10 @@ After looking at ```debug.txt``` it appears to be an ```Error: no display specif
 
 ## Separated
 
-You can launch the entire simulation ine one shot with ```ruby separated/launch.rb``` or piece by piece. First we spawn a Headless instance with ```spawn.rb```, we then reuse the same instance in ```safe.rb```, and lastly we clean up with ```reap.rb```.
+You can launch the entire simulation in one shot with ```ruby separated/launch.rb``` or piece by piece. First spawn a Headless instance with ```spawn.rb```, then reuse the same instance in ```safe.rb```, and lastly clean up with ```reap.rb```.
 
 To collect all the errors run the script in debug mode and pipe stderr and stdout to debug.txt ```ruby -d safe.rb >> debug.txt 2>&1 ```. Note you must run ```spawn.rb``` first.
 
 ## Joined
 
-Included is a single ruby script which combines all spawn.rb, safe.rb and reap.rb into one ```ruby joined/safe.rb```. In this scenario the script successfully without any errors.
+Included is a single ruby script which combines spawn.rb, safe.rb and reap.rb into one ```ruby joined/safe.rb```. In this scenario the script successfully without any errors.
