@@ -12,6 +12,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+    watir-webdriver (0.6.4)
+      selenium-webdriver (>= 2.18.0)
     websocket (1.0.7)
 
 PLATFORMS
@@ -20,3 +22,4 @@ PLATFORMS
 DEPENDENCIES
   headless
   selenium-webdriver
+  watir-webdriver
