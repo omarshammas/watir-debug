@@ -1,8 +1,12 @@
+# hypothesis one
+#
+# attempting to reproduce a bug where multiple threads
+# invoke the goto method on a Watir::Browser instance 
+
 require 'rubygems'
 require 'headless'
 require 'watir-webdriver'
 
-SLEEP_SECONDS = 5
 ATTEMPTS = 5
 
 def get_google id
