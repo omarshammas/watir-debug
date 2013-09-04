@@ -3,6 +3,7 @@ require 'headless'
 require 'watir-webdriver'
 
 SLEEP_SECONDS = 5
+ATTEMPTS = 5
 
 def get_google id
     display = 100 # + id
@@ -13,14 +14,11 @@ def get_google id
     p "#{id} creating and starting watir"
     b = Watir::Browser.new
 
-    seconds = SLEEP_SECONDS*id*id
-    p "#{id} sleeping for #{seconds}"
-    sleep seconds
-
-    p "#{id} retrieve url"
-    b.goto 'https://google.com' if id == 1
-    b.goto 'https://bing.com' if id == 2
-    p "#{id} #{b.title}"
+    ATTEMPTS.times do |n|
+        p "#{id} retrieving url - attempt #{n}"
+        b.goto 'google.com' 
+        p "#{id} #{b.title}"
+    end
 
     p "#{id} closing watir"
     b.close
