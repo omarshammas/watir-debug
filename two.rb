@@ -1,11 +1,7 @@
 # hypothesis two
 #
-# goto race condition bug was successfully reproduced 
-# only on the deployment server. Why is this?
-#
-# lock goto in mutex should hopefully solve this problem.
-# but more importantly what is different between server
-# and the rest?
+# lock goto in mutex should hopefully solve this problem
+# if there is a race condition in the goto call
 
 require 'rubygems'
 require 'headless'

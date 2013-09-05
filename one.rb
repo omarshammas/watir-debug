@@ -1,7 +1,8 @@
 # hypothesis one
 #
-# attempting to reproduce a bug where multiple threads
-# invoke the goto method on a Watir::Browser instance 
+# attempting to reproduce a bug in watir when
+# multiple threads are invoking the goto method
+# on a Watir::Browser instance
 
 require 'rubygems'
 require 'headless'
