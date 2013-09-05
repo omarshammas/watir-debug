@@ -8,7 +8,7 @@ require 'rubygems'
 require 'headless'
 require 'watir-webdriver'
 
-ATTEMPTS = 5
+ATTEMPTS = 10
 
 def get_google id
     p "#{id} creating and starting headless"
@@ -28,7 +28,7 @@ def get_google id
         raise
     ensure
         p "#{id} closing watir"
-        b.close
+        b.close rescue p "#{id} *** unable to close watir ***"
 
         p "#{id} closing headless"
         # headless.destroy

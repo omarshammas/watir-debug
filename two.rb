@@ -8,7 +8,7 @@ require 'headless'
 require 'watir-webdriver'
 require 'thread'
 
-ATTEMPTS = 5
+ATTEMPTS = 10
 
 def get_google id, semaphore
     p "#{id} creating and starting headless"
@@ -28,12 +28,13 @@ def get_google id, semaphore
         raise e
     ensure
         p "#{id} closing watir"
-        b.close
+        b.close rescue p "#{id} *** unable to close watir ***"
 
         p "#{id} closing headless"
         # headless.destroy
 
         p "#{id} goodbye"
+    end
 end
 
 p "launching threads"
