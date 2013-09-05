@@ -17,19 +17,23 @@ def get_google id
     p "#{id} creating and starting watir"
     b = Watir::Browser.new
 
-    ATTEMPTS.times do |n|
-        p "#{id} retrieving url - attempt #{n}"
-        b.goto 'google.com' 
-        p "#{id} #{b.title}"
+    begin
+        ATTEMPTS.times do |n|
+            p "#{id} retrieving url - attempt #{n}"
+            b.goto 'google.com' 
+            p "#{id} #{b.title}"
+        end
+   rescue StandardError => e
+        raise
+    ensure
+        p "#{id} closing watir"
+        b.close
+
+        p "#{id} closing headless"
+        # headless.destroy
+
+        p "#{id} goodbye"
     end
-
-    p "#{id} closing watir"
-    b.close
-
-    p "#{id} closing headless"
-    # headless.destroy
-
-    p "#{id} goodbye"
 end
 
 p "launching threads"

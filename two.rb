@@ -22,19 +22,22 @@ def get_google id, semaphore
     p "#{id} creating and starting watir"
     b = Watir::Browser.new
 
-    ATTEMPTS.times do |n|
-        p "#{id} retrieving url - attempt #{n}"
-        semaphore.synchronize { b.goto 'google.com' } 
-        p "#{id} #{b.title}"
-    end
+    begin
+        ATTEMPTS.times do |n|
+            p "#{id} retrieving url - attempt #{n}"
+            semaphore.synchronize { b.goto 'google.com' } 
+            p "#{id} #{b.title}"
+        end
+    rescue StandardError => e
+        raise e
+    ensure
+        p "#{id} closing watir"
+        b.close
 
-    p "#{id} closing watir"
-    b.close
+        p "#{id} closing headless"
+        # headless.destroy
 
-    p "#{id} closing headless"
-    # headless.destroy
-
-    p "#{id} goodbye"
+        p "#{id} goodbye"
 end
 
 p "launching threads"
